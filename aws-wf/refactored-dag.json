@@ -1,0 +1,113 @@
+{
+    "WorkflowName": "QXFAASMapWF",
+    "Nodes": [
+        {
+            "NodeId": "1",
+            "NodeName": "Splitter",
+            "Path": "examples/QuantumMa/Splitter",
+            "EntryPoint": "Splitter.py",
+            "CSP": "NA",
+            "MemoryInMB": 512,
+            "IsAsync": false,
+            "IsContainerised": true
+        },
+        {
+            "NodeId": "2",
+            "NodeName": "Transpiler",
+            "Path": "examples/QuantumMa/Transpiler",
+            "EntryPoint": "Transpiler.py",
+            "CSP": "NA",
+            "MemoryInMB": 512,
+            "IsAsync": false,
+            "IsContainerised": true
+        },
+        {
+            "NodeId": "3",
+            "NodeName": "Submitter",
+            "Path": "examples/QuantumMa/Submitter",
+            "EntryPoint": "Submitter.py",
+            "CSP": "NA",
+            "MemoryInMB": 512,
+            "IsAsync": false,
+            "IsContainerised": true
+        },
+        {
+            "NodeId": "4",
+            "NodeName": "Merger",
+            "Path": "examples/QuantumMa/Merger",
+            "EntryPoint": "Merger.py",
+            "CSP": "NA",
+            "MemoryInMB": 512,
+            "IsAsync": true,
+            "IsContainerised": true
+        },
+        {
+            "NodeId": "5",
+            "NodeName": "Poller",
+            "Path": "examples/QuantumMa/Poller",
+            "EntryPoint": "Poller.py",
+            "CSP": "NA",
+            "MemoryInMB": 512,
+            "IsContainerised": true
+        },
+        {
+            "NodeId": "6",
+            "NodeName": "Reconstructor",
+            "Path": "examples/QuantumMa/Reconstructor",
+            "EntryPoint": "Reconstructor.py",
+            "CSP": "NA",
+            "MemoryInMB": 512,
+            "IsAsync": false,
+            "IsContainerised": true
+        },
+        {
+            "NodeId": "253",
+            "NodeName": "CollectLogs",
+            "Path": "/home/wishee/work/XFaaS/xfaas/serwo/examples/QuantumMa/CollectLogs",
+            "EntryPoint": "func.py",
+            "CSP": "NA",
+            "MemoryInMB": 128
+        }
+    ],
+    "Edges": [
+        {
+            "Splitter": [
+                "Transpiler"
+            ]
+        },
+        {
+            "Transpiler": [
+                "Submitter"
+            ]
+        },
+        {
+            "Submitter": [
+                "Merger"
+            ]
+        },
+        {
+            "Merger": [
+                "Poller"
+            ]
+        },
+        {
+            "Poller": [
+                "Reconstructor"
+            ]
+        },
+        {
+            "Reconstructor": [
+                "CollectLogs"
+            ]
+        }
+    ],
+    "SubGraphs": [
+        {
+            "Listname": "List",
+            "Nodes": [
+                "Transpiler",
+                "Submitter"
+            ]
+        }
+    ]
+}

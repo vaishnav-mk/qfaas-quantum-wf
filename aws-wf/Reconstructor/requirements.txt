@@ -1,0 +1,1 @@
+circuit-knitting-toolbox[notebook-dependencies,dev,cplex]

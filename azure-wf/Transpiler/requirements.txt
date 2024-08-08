@@ -1,0 +1,4 @@
+qiskit-ibm-runtime==0.22.0
+qiskit-aer==0.13.3
+more-itertools==8.10.0
+qiskit==1.0.0

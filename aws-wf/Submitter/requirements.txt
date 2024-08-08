@@ -1,0 +1,2 @@
+qiskit-ibm-runtime==0.22.0
+more-itertools==8.10.0
